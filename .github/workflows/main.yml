@@ -1,3 +1,8 @@
+Eski bir sürümü (`v3`) kullandığım için GitHub uyarı vermiş ve işlemi reddetmiş (Eskiden `v3` kullanılıyordu, artık güvenlik için `v4` istiyorlar). Hata tamamen benden kaynaklı, kusura bakma!
+
+Lütfen GitHub'daki o sayfaya (Editör'e) geri dönüp, kodu tamamen sil ve aşağıdaki **en güncel sürüm (`v4` ve `v5`)** kodlarını yapıştırıp sağ üstten tekrar "Commit" et. Ardından kaldığın yerden `Run workflow` butonuna basabilirsin, bu sefer hatasız %100 çalışacaktır:
+
+```yaml
 name: Build APK
 
 on:
@@ -8,10 +13,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Git Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Python Kurulumu
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with:
           python-version: '3.11'
 
@@ -27,7 +32,8 @@ jobs:
         run: flet build apk
 
       - name: Dosyayı Teslim Et
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: Coomer_Mobile_APK
           path: build/apk/app-release.apk
+```
